@@ -1,10 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code heredocument.addEventListener("DOMContentLoaded", () => {
 
-  document.querySelector('input[type="submit"]').addEventListener("click", function(event){
-    console.log("hey, I'm executing")
-    let text = document.getElementById('new-task-description').value;
-    document.getElementById('tasks').innerHTML += text;
-    event.preventDefault();
-    }, false);
-});	});
+    let form = document.getElementById("create-task-form")
+    console.log("this is working",form)
+
+    let textBox =  document.getElementById("new-task-description")
+    // let button = form.querySelectorAll('input')[1]
+
+    let tasks = document.getElementById('tasks') // ul
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault()
+      console.log("button clicked")
+      let li = document.createElement("li")
+      li.innerText = textBox.value    //form.innerText
+      tasks.append(li)
+    })
+  });
+});
